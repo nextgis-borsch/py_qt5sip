@@ -15,6 +15,8 @@ with open(sys.argv[1]) as data_file:
     else: 
         version = data['info']['version']
     name = data['info']['name']
+    name = name.replace('-', '_')
+
     for i in data['releases'][version]:
         if i['url'].endswith('tar.gz') or i['url'].endswith('zip'):
             download_url = i['url']
